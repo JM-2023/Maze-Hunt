@@ -1,5 +1,7 @@
 ### Maze Hunt
 
+**Group Members:** Mohamed Sulevani, Nikoli Oudo, Jimin Li, Jesus Serna
+
 #### **Game Objective**
 
 - The player starts at the entrance of a procedurally generated 3D maze and must navigate through it to collect props (e.g., keys or tokens) scattered around the maze.
