@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 10e97967487c5c541a7e290c09b38af5
+timeCreated: 1479465312
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/wood_01.prefab
+  uploadId: 152139

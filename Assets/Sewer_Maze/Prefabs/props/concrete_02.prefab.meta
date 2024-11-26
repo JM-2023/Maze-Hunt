@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4b2b41f17e6001e469e7adf5adcc52da
+timeCreated: 1479466420
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/concrete_02.prefab
+  uploadId: 152139

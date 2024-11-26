@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 273619cf965ba214b809232014b50587
+timeCreated: 1478964065
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Model/Materials/props_material.mat
+  uploadId: 152139

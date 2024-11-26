@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9294e8d4e7267154fa3b97878a35ed94
+timeCreated: 1479466243
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/water_pipe.prefab
+  uploadId: 152139

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 04c827c63604b294ab3f9f9d6bb91d56
+timeCreated: 1480167858
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/fly_cam.controller
+  uploadId: 152139

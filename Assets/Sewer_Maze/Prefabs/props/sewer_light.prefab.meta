@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8fe37a93a75aa224d87abec126ff7906
+timeCreated: 1479493362
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/sewer_light.prefab
+  uploadId: 152139

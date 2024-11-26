@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 83e5b6fe31e484946b6b3c13a10c244e
+timeCreated: 1479465302
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/bag_02.prefab
+  uploadId: 152139

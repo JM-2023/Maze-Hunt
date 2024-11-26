@@ -1,62 +1,75 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class MazeGenerator : MonoBehaviour
 {
     [Header("Maze Settings")]
     public int width = 10; // Number of cells horizontally
     public int height = 10; // Number of cells vertically
-    public int pathWidth = 2; // Width of the paths
-    public GameObject wallPrefab;
-    public GameObject floorPrefab;
-    public GameObject propPrefab;
-    public int totalProps = 5;
+    public int pathWidth = 5; // Desired path width in units
+    public int wallThickness = 1; // Wall thickness in units
+
+    [Header("Prefabs")]
+    public GameObject wallPrefab; // Prefab for walls
+    public GameObject floorPrefab; // Prefab for floor tiles
 
     [Header("Starting Room Settings")]
-    public int roomWidth = 4; // Width of the starting room
-    public int roomHeight = 4; // Height of the starting room
+    public int startingRoomSizeX = 3; // Starting room width in cells
+    public int startingRoomSizeY = 3; // Starting room height in cells
 
-    private bool[,] maze;
+    private bool[,] maze; // 2D array to represent the maze structure
 
     void Start()
     {
         GenerateMaze();
         BuildMaze();
+        PositionPlayer();
     }
 
     void GenerateMaze()
     {
-        // Adjust maze size to account for path width
-        int mazeWidth = width * (pathWidth + 1) + 1;
-        int mazeHeight = height * (pathWidth + 1) + 1;
-
-        maze = new bool[mazeWidth, mazeHeight];
+        int gridWidth = width * (pathWidth + wallThickness) + wallThickness;
+        int gridHeight = height * (pathWidth + wallThickness) + wallThickness;
+        maze = new bool[gridWidth, gridHeight];
 
         // Initialize maze with walls
-        for (int x = 0; x < mazeWidth; x++)
+        for (int x = 0; x < gridWidth; x++)
         {
-            for (int y = 0; y < mazeHeight; y++)
+            for (int y = 0; y < gridHeight; y++)
             {
-                maze[x, y] = true; // Wall
+                maze[x, y] = true; // Wall by default
             }
         }
 
         // Create starting room
-        for (int x = 1; x < roomWidth + 1; x++)
+        CreateStartingRoom();
+
+        // Start carving from just outside the starting room
+        CarvePassagesFrom(startingRoomSizeX * (pathWidth + wallThickness), startingRoomSizeY * (pathWidth + wallThickness));
+    }
+
+    void CreateStartingRoom()
+    {
+        int roomWidth = startingRoomSizeX * (pathWidth + wallThickness) - wallThickness;
+        int roomHeight = startingRoomSizeY * (pathWidth + wallThickness) - wallThickness;
+
+        int startX = wallThickness;
+        int startY = wallThickness;
+
+        for (int x = startX; x < startX + roomWidth; x++)
         {
-            for (int y = 1; y < roomHeight + 1; y++)
+            for (int y = startY; y < startY + roomHeight; y++)
             {
-                maze[x, y] = false; // Path
+                if (IsInMaze(x, y))
+                {
+                    maze[x, y] = false; // Path
+                }
             }
         }
-
-        // Start Recursive Backtracking from the edge of the starting room
-        CarvePassagesFrom(roomWidth, roomHeight);
     }
 
     void CarvePassagesFrom(int currentX, int currentY)
     {
-        maze[currentX, currentY] = false; // Path
+        CarvePath(currentX, currentY);
 
         int[] directions = { 0, 1, 2, 3 }; // Up, Down, Left, Right
         ShuffleArray(directions);
@@ -67,10 +80,10 @@ public class MazeGenerator : MonoBehaviour
 
             switch (direction)
             {
-                case 0: dy = (pathWidth + 1); break; // Up
-                case 1: dy = -(pathWidth + 1); break; // Down
-                case 2: dx = -(pathWidth + 1); break; // Left
-                case 3: dx = (pathWidth + 1); break; // Right
+                case 0: dy = (pathWidth + wallThickness); break; // Up
+                case 1: dy = -(pathWidth + wallThickness); break; // Down
+                case 2: dx = -(pathWidth + wallThickness); break; // Left
+                case 3: dx = (pathWidth + wallThickness); break; // Right
             }
 
             int newX = currentX + dx;
@@ -78,37 +91,30 @@ public class MazeGenerator : MonoBehaviour
 
             if (IsInMaze(newX, newY) && maze[newX, newY])
             {
-                // Carve path width
-                CarvePath(currentX, currentY, dx, dy);
+                // Carve out the wall between cells
+                int betweenX = currentX + dx / 2;
+                int betweenY = currentY + dy / 2;
+                CarvePath(betweenX, betweenY);
+
                 CarvePassagesFrom(newX, newY);
             }
         }
     }
 
-    void CarvePath(int x, int y, int dx, int dy)
+    void CarvePath(int x, int y)
     {
-        int pathLength = pathWidth + 1;
+        int halfWidth = pathWidth / 2;
 
-        for (int i = 0; i <= pathLength; i++)
+        for (int i = -halfWidth; i <= halfWidth; i++)
         {
-            int nx = x + (dx != 0 ? (dx / Mathf.Abs(dx)) * i : 0);
-            int ny = y + (dy != 0 ? (dy / Mathf.Abs(dy)) * i : 0);
-
-            if (IsInMaze(nx, ny))
+            for (int j = -halfWidth; j <= halfWidth; j++)
             {
-                // Carve out the path width
-                for (int px = -pathWidth / 2; px <= pathWidth / 2; px++)
-                {
-                    for (int py = -pathWidth / 2; py <= pathWidth / 2; py++)
-                    {
-                        int carveX = nx + px;
-                        int carveY = ny + py;
+                int px = x + i;
+                int py = y + j;
 
-                        if (IsInMaze(carveX, carveY))
-                        {
-                            maze[carveX, carveY] = false;
-                        }
-                    }
+                if (IsInMaze(px, py))
+                {
+                    maze[px, py] = false; // Path
                 }
             }
         }
@@ -116,58 +122,64 @@ public class MazeGenerator : MonoBehaviour
 
     bool IsInMaze(int x, int y)
     {
-        return x > 0 && x < maze.GetLength(0) - 1 && y > 0 && y < maze.GetLength(1) - 1;
+        return x >= 0 && x < maze.GetLength(0) && y >= 0 && y < maze.GetLength(1);
     }
 
     void ShuffleArray(int[] array)
     {
-        for (int i = 0; i < array.Length; i++)
+        for (int i = array.Length - 1; i > 0; i--)
         {
-            int rnd = Random.Range(i, array.Length);
-            int temp = array[rnd];
-            array[rnd] = array[i];
+            int randomIndex = Random.Range(0, i + 1);
+            int temp = array[randomIndex];
+            array[randomIndex] = array[i];
             array[i] = temp;
         }
     }
 
     void BuildMaze()
     {
+        float wallHeight = 3f; // Wall height
+
         for (int x = 0; x < maze.GetLength(0); x++)
         {
             for (int y = 0; y < maze.GetLength(1); y++)
             {
                 Vector3 position = new Vector3(x, 0, y);
 
-                if (maze[x, y])
+                if (!maze[x, y])
                 {
-                    Instantiate(wallPrefab, position, Quaternion.identity, transform);
-                }
-                else
-                {
+                    // Place floor tile without scaling
                     Instantiate(floorPrefab, position, Quaternion.identity, transform);
                 }
             }
         }
 
-        // Place Props
-        PlaceProps();
+        // After placing floor tiles, place walls
+        PlaceWalls(wallHeight);
     }
 
-    void PlaceProps()
+    void PlaceWalls(float wallHeight)
     {
-        int placedProps = 0;
-
-        while (placedProps < totalProps)
+        for (int x = 0; x < maze.GetLength(0); x++)
         {
-            int x = Random.Range(1, maze.GetLength(0) - 1);
-            int y = Random.Range(1, maze.GetLength(1) - 1);
-
-            if (!maze[x, y]) // If it's a path
+            for (int y = 0; y < maze.GetLength(1); y++)
             {
-                Vector3 position = new Vector3(x, 0.5f, y);
-                Instantiate(propPrefab, position, Quaternion.identity);
-                placedProps++;
+                if (maze[x, y])
+                {
+                    Vector3 position = new Vector3(x, wallHeight / 2, y);
+                    Instantiate(wallPrefab, position, Quaternion.identity, transform);
+                }
             }
+        }
+    }
+
+    void PositionPlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            player.transform.position = new Vector3((startingRoomSizeX * (pathWidth + wallThickness)) / 2f, 1, (startingRoomSizeY * (pathWidth + wallThickness)) / 2f);
         }
     }
 }

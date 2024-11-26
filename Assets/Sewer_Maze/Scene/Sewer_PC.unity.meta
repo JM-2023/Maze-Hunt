@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a8e7a677799629b41b4af69234ca9254
+timeCreated: 1478964083
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Scene/Sewer_PC.unity
+  uploadId: 152139

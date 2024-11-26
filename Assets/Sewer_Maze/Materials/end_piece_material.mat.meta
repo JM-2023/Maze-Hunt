@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3c24248a9ddc82246b13b1055e4b81ab
+timeCreated: 1478964063
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Model/Materials/end_piece_material.mat
+  uploadId: 152139

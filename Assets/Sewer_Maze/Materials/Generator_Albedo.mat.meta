@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e8ff361adb9142c478b20ced6951960d
+timeCreated: 1478172186
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 75375
+  packageName: Turbine Generator Pack
+  packageVersion: 1.2
+  assetPath: Assets/Sewer_Maze/Generator/Model/Materials/Generator_Albedo.mat
+  uploadId: 395514

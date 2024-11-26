@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b66e71b86463019468510707b4a5a487
+timeCreated: 1479472025
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/sewer_pieces/end_piece_02.prefab
+  uploadId: 152139

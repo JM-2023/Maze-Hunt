@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f3addc49258398949bc2f64f589d716a
+timeCreated: 1479493163
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Model/Materials/glass_d.mat
+  uploadId: 152139

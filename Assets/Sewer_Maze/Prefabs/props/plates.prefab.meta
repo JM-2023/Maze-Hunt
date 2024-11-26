@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 77b6421e46861c040ba3b0499a462363
+timeCreated: 1479466206
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/plates.prefab
+  uploadId: 152139

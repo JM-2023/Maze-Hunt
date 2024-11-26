@@ -1,0 +1,1524 @@
+fileFormatVersion: 2
+guid: d2f1e0b107c68164c9784867e34a06db
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Model/Level_with_props.fbx
+  uploadId: 152139
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: bottle
+  - first:
+      1: 100002
+    second: box
+  - first:
+      1: 100004
+    second: concrete1
+  - first:
+      1: 100006
+    second: concrete2
+  - first:
+      1: 100008
+    second: concrete3
+  - first:
+      1: 100010
+    second: corner_cross
+  - first:
+      1: 100012
+    second: cross
+  - first:
+      1: 100014
+    second: decal01
+  - first:
+      1: 100016
+    second: decal02
+  - first:
+      1: 100018
+    second: decal_01
+  - first:
+      1: 100020
+    second: decal_01 1
+  - first:
+      1: 100022
+    second: decal_01 2
+  - first:
+      1: 100024
+    second: decal_01 3
+  - first:
+      1: 100026
+    second: decal_011
+  - first:
+      1: 100028
+    second: decal_013
+  - first:
+      1: 100030
+    second: decal_02
+  - first:
+      1: 100032
+    second: decal_02 1
+  - first:
+      1: 100034
+    second: decal_02 2
+  - first:
+      1: 100036
+    second: decal_022
+  - first:
+      1: 100038
+    second: decal_023
+  - first:
+      1: 100040
+    second: decal_024
+  - first:
+      1: 100042
+    second: decal_03
+  - first:
+      1: 100044
+    second: decal_03 1
+  - first:
+      1: 100046
+    second: decal_04
+  - first:
+      1: 100048
+    second: decal_04 1
+  - first:
+      1: 100050
+    second: decal_05
+  - first:
+      1: 100052
+    second: decal_05 1
+  - first:
+      1: 100054
+    second: decal_06
+  - first:
+      1: 100056
+    second: decal_07
+  - first:
+      1: 100058
+    second: decal_08
+  - first:
+      1: 100060
+    second: end_piece
+  - first:
+      1: 100062
+    second: grass
+  - first:
+      1: 100064
+    second: grass 1
+  - first:
+      1: 100066
+    second: grass 2
+  - first:
+      1: 100068
+    second: grass1
+  - first:
+      1: 100070
+    second: grass1 1
+  - first:
+      1: 100072
+    second: grass1 2
+  - first:
+      1: 100074
+    second: grass2
+  - first:
+      1: 100076
+    second: grass2 1
+  - first:
+      1: 100078
+    second: grass2 2
+  - first:
+      1: 100080
+    second: grass3
+  - first:
+      1: 100082
+    second: //RootNode
+  - first:
+      1: 100084
+    second: meter
+  - first:
+      1: 100086
+    second: meter2
+  - first:
+      1: 100088
+    second: meter3
+  - first:
+      1: 100090
+    second: modular_piece
+  - first:
+      1: 100092
+    second: moss
+  - first:
+      1: 100094
+    second: moss 1
+  - first:
+      1: 100096
+    second: pipes
+  - first:
+      1: 100098
+    second: pipes 1
+  - first:
+      1: 100100
+    second: pipes 2
+  - first:
+      1: 100102
+    second: pipes 3
+  - first:
+      1: 100104
+    second: pipes 4
+  - first:
+      1: 100106
+    second: plates
+  - first:
+      1: 100108
+    second: ploybag
+  - first:
+      1: 100110
+    second: polybag
+  - first:
+      1: 100112
+    second: props
+  - first:
+      1: 100114
+    second: roof
+  - first:
+      1: 100116
+    second: roof 1
+  - first:
+      1: 100118
+    second: roof 2
+  - first:
+      1: 100120
+    second: roof 3
+  - first:
+      1: 100122
+    second: roof 4
+  - first:
+      1: 100124
+    second: straight
+  - first:
+      1: 100126
+    second: straight1
+  - first:
+      1: 100128
+    second: T_section
+  - first:
+      1: 100130
+    second: tyre
+  - first:
+      1: 100132
+    second: vlc
+  - first:
+      1: 100134
+    second: vlc1
+  - first:
+      1: 100136
+    second: wall
+  - first:
+      1: 100138
+    second: wall 1
+  - first:
+      1: 100140
+    second: wall 2
+  - first:
+      1: 100142
+    second: wall 3
+  - first:
+      1: 100144
+    second: wall 4
+  - first:
+      1: 100146
+    second: water_pipe
+  - first:
+      1: 100148
+    second: wood
+  - first:
+      1: 100150
+    second: wood1
+  - first:
+      1: 100152
+    second: decal_015
+  - first:
+      1: 100154
+    second: decal_016
+  - first:
+      1: 100156
+    second: decal_017
+  - first:
+      1: 100158
+    second: decal_018
+  - first:
+      1: 100160
+    second: decal_019
+  - first:
+      1: 100162
+    second: floor
+  - first:
+      1: 100164
+    second: grass_01
+  - first:
+      1: 100166
+    second: grass_01 1
+  - first:
+      1: 100168
+    second: grass_01 2
+  - first:
+      1: 100170
+    second: grass_01 3
+  - first:
+      1: 100172
+    second: grass_02
+  - first:
+      1: 100174
+    second: grass_02 1
+  - first:
+      1: 100176
+    second: grass_02 2
+  - first:
+      1: 100178
+    second: grass_03
+  - first:
+      1: 100180
+    second: grass_03 1
+  - first:
+      1: 100182
+    second: hanging_moss
+  - first:
+      1: 100184
+    second: moss_hanging
+  - first:
+      1: 100186
+    second: polySurface1
+  - first:
+      1: 100188
+    second: polySurface2
+  - first:
+      1: 100190
+    second: wall1
+  - first:
+      1: 100192
+    second: wall2
+  - first:
+      1: 100194
+    second: wall3
+  - first:
+      4: 400000
+    second: bottle
+  - first:
+      4: 400002
+    second: box
+  - first:
+      4: 400004
+    second: concrete1
+  - first:
+      4: 400006
+    second: concrete2
+  - first:
+      4: 400008
+    second: concrete3
+  - first:
+      4: 400010
+    second: corner_cross
+  - first:
+      4: 400012
+    second: cross
+  - first:
+      4: 400014
+    second: decal01
+  - first:
+      4: 400016
+    second: decal02
+  - first:
+      4: 400018
+    second: decal_01
+  - first:
+      4: 400020
+    second: decal_01 1
+  - first:
+      4: 400022
+    second: decal_01 2
+  - first:
+      4: 400024
+    second: decal_01 3
+  - first:
+      4: 400026
+    second: decal_011
+  - first:
+      4: 400028
+    second: decal_013
+  - first:
+      4: 400030
+    second: decal_02
+  - first:
+      4: 400032
+    second: decal_02 1
+  - first:
+      4: 400034
+    second: decal_02 2
+  - first:
+      4: 400036
+    second: decal_022
+  - first:
+      4: 400038
+    second: decal_023
+  - first:
+      4: 400040
+    second: decal_024
+  - first:
+      4: 400042
+    second: decal_03
+  - first:
+      4: 400044
+    second: decal_03 1
+  - first:
+      4: 400046
+    second: decal_04
+  - first:
+      4: 400048
+    second: decal_04 1
+  - first:
+      4: 400050
+    second: decal_05
+  - first:
+      4: 400052
+    second: decal_05 1
+  - first:
+      4: 400054
+    second: decal_06
+  - first:
+      4: 400056
+    second: decal_07
+  - first:
+      4: 400058
+    second: decal_08
+  - first:
+      4: 400060
+    second: end_piece
+  - first:
+      4: 400062
+    second: grass
+  - first:
+      4: 400064
+    second: grass 1
+  - first:
+      4: 400066
+    second: grass 2
+  - first:
+      4: 400068
+    second: grass1
+  - first:
+      4: 400070
+    second: grass1 1
+  - first:
+      4: 400072
+    second: grass1 2
+  - first:
+      4: 400074
+    second: grass2
+  - first:
+      4: 400076
+    second: grass2 1
+  - first:
+      4: 400078
+    second: grass2 2
+  - first:
+      4: 400080
+    second: grass3
+  - first:
+      4: 400082
+    second: //RootNode
+  - first:
+      4: 400084
+    second: meter
+  - first:
+      4: 400086
+    second: meter2
+  - first:
+      4: 400088
+    second: meter3
+  - first:
+      4: 400090
+    second: modular_piece
+  - first:
+      4: 400092
+    second: moss
+  - first:
+      4: 400094
+    second: moss 1
+  - first:
+      4: 400096
+    second: pipes
+  - first:
+      4: 400098
+    second: pipes 1
+  - first:
+      4: 400100
+    second: pipes 2
+  - first:
+      4: 400102
+    second: pipes 3
+  - first:
+      4: 400104
+    second: pipes 4
+  - first:
+      4: 400106
+    second: plates
+  - first:
+      4: 400108
+    second: ploybag
+  - first:
+      4: 400110
+    second: polybag
+  - first:
+      4: 400112
+    second: props
+  - first:
+      4: 400114
+    second: roof
+  - first:
+      4: 400116
+    second: roof 1
+  - first:
+      4: 400118
+    second: roof 2
+  - first:
+      4: 400120
+    second: roof 3
+  - first:
+      4: 400122
+    second: roof 4
+  - first:
+      4: 400124
+    second: straight
+  - first:
+      4: 400126
+    second: straight1
+  - first:
+      4: 400128
+    second: T_section
+  - first:
+      4: 400130
+    second: tyre
+  - first:
+      4: 400132
+    second: vlc
+  - first:
+      4: 400134
+    second: vlc1
+  - first:
+      4: 400136
+    second: wall
+  - first:
+      4: 400138
+    second: wall 1
+  - first:
+      4: 400140
+    second: wall 2
+  - first:
+      4: 400142
+    second: wall 3
+  - first:
+      4: 400144
+    second: wall 4
+  - first:
+      4: 400146
+    second: water_pipe
+  - first:
+      4: 400148
+    second: wood
+  - first:
+      4: 400150
+    second: wood1
+  - first:
+      4: 400152
+    second: decal_015
+  - first:
+      4: 400154
+    second: decal_016
+  - first:
+      4: 400156
+    second: decal_017
+  - first:
+      4: 400158
+    second: decal_018
+  - first:
+      4: 400160
+    second: decal_019
+  - first:
+      4: 400162
+    second: floor
+  - first:
+      4: 400164
+    second: grass_01
+  - first:
+      4: 400166
+    second: grass_01 1
+  - first:
+      4: 400168
+    second: grass_01 2
+  - first:
+      4: 400170
+    second: grass_01 3
+  - first:
+      4: 400172
+    second: grass_02
+  - first:
+      4: 400174
+    second: grass_02 1
+  - first:
+      4: 400176
+    second: grass_02 2
+  - first:
+      4: 400178
+    second: grass_03
+  - first:
+      4: 400180
+    second: grass_03 1
+  - first:
+      4: 400182
+    second: hanging_moss
+  - first:
+      4: 400184
+    second: moss_hanging
+  - first:
+      4: 400186
+    second: polySurface1
+  - first:
+      4: 400188
+    second: polySurface2
+  - first:
+      4: 400190
+    second: wall1
+  - first:
+      4: 400192
+    second: wall2
+  - first:
+      4: 400194
+    second: wall3
+  - first:
+      23: 2300000
+    second: bottle
+  - first:
+      23: 2300002
+    second: box
+  - first:
+      23: 2300004
+    second: concrete1
+  - first:
+      23: 2300006
+    second: concrete2
+  - first:
+      23: 2300008
+    second: concrete3
+  - first:
+      23: 2300010
+    second: decal01
+  - first:
+      23: 2300012
+    second: decal02
+  - first:
+      23: 2300014
+    second: decal_01
+  - first:
+      23: 2300016
+    second: decal_01 1
+  - first:
+      23: 2300018
+    second: decal_01 2
+  - first:
+      23: 2300020
+    second: decal_01 3
+  - first:
+      23: 2300022
+    second: decal_011
+  - first:
+      23: 2300024
+    second: decal_013
+  - first:
+      23: 2300026
+    second: decal_02
+  - first:
+      23: 2300028
+    second: decal_02 1
+  - first:
+      23: 2300030
+    second: decal_02 2
+  - first:
+      23: 2300032
+    second: decal_022
+  - first:
+      23: 2300034
+    second: decal_023
+  - first:
+      23: 2300036
+    second: decal_024
+  - first:
+      23: 2300038
+    second: decal_03
+  - first:
+      23: 2300040
+    second: decal_03 1
+  - first:
+      23: 2300042
+    second: decal_04
+  - first:
+      23: 2300044
+    second: decal_04 1
+  - first:
+      23: 2300046
+    second: decal_05
+  - first:
+      23: 2300048
+    second: decal_05 1
+  - first:
+      23: 2300050
+    second: decal_06
+  - first:
+      23: 2300052
+    second: decal_07
+  - first:
+      23: 2300054
+    second: decal_08
+  - first:
+      23: 2300056
+    second: end_piece
+  - first:
+      23: 2300058
+    second: grass
+  - first:
+      23: 2300060
+    second: grass 1
+  - first:
+      23: 2300062
+    second: grass 2
+  - first:
+      23: 2300064
+    second: grass1
+  - first:
+      23: 2300066
+    second: grass1 1
+  - first:
+      23: 2300068
+    second: grass1 2
+  - first:
+      23: 2300070
+    second: grass2
+  - first:
+      23: 2300072
+    second: grass2 1
+  - first:
+      23: 2300074
+    second: grass2 2
+  - first:
+      23: 2300076
+    second: grass3
+  - first:
+      23: 2300078
+    second: meter
+  - first:
+      23: 2300080
+    second: meter2
+  - first:
+      23: 2300082
+    second: meter3
+  - first:
+      23: 2300084
+    second: modular_piece
+  - first:
+      23: 2300086
+    second: moss
+  - first:
+      23: 2300088
+    second: moss 1
+  - first:
+      23: 2300090
+    second: pipes
+  - first:
+      23: 2300092
+    second: pipes 1
+  - first:
+      23: 2300094
+    second: pipes 2
+  - first:
+      23: 2300096
+    second: pipes 3
+  - first:
+      23: 2300098
+    second: pipes 4
+  - first:
+      23: 2300100
+    second: plates
+  - first:
+      23: 2300102
+    second: ploybag
+  - first:
+      23: 2300104
+    second: polybag
+  - first:
+      23: 2300106
+    second: roof
+  - first:
+      23: 2300108
+    second: roof 1
+  - first:
+      23: 2300110
+    second: roof 2
+  - first:
+      23: 2300112
+    second: roof 3
+  - first:
+      23: 2300114
+    second: roof 4
+  - first:
+      23: 2300116
+    second: tyre
+  - first:
+      23: 2300118
+    second: vlc
+  - first:
+      23: 2300120
+    second: vlc1
+  - first:
+      23: 2300122
+    second: wall
+  - first:
+      23: 2300124
+    second: wall 1
+  - first:
+      23: 2300126
+    second: wall 2
+  - first:
+      23: 2300128
+    second: wall 3
+  - first:
+      23: 2300130
+    second: wall 4
+  - first:
+      23: 2300132
+    second: water_pipe
+  - first:
+      23: 2300134
+    second: wood
+  - first:
+      23: 2300136
+    second: wood1
+  - first:
+      23: 2300138
+    second: decal_015
+  - first:
+      23: 2300140
+    second: decal_016
+  - first:
+      23: 2300142
+    second: decal_017
+  - first:
+      23: 2300144
+    second: decal_018
+  - first:
+      23: 2300146
+    second: decal_019
+  - first:
+      23: 2300148
+    second: floor
+  - first:
+      23: 2300150
+    second: grass_01
+  - first:
+      23: 2300152
+    second: grass_01 1
+  - first:
+      23: 2300154
+    second: grass_01 2
+  - first:
+      23: 2300156
+    second: grass_01 3
+  - first:
+      23: 2300158
+    second: grass_02
+  - first:
+      23: 2300160
+    second: grass_02 1
+  - first:
+      23: 2300162
+    second: grass_02 2
+  - first:
+      23: 2300164
+    second: grass_03
+  - first:
+      23: 2300166
+    second: grass_03 1
+  - first:
+      23: 2300168
+    second: hanging_moss
+  - first:
+      23: 2300170
+    second: moss_hanging
+  - first:
+      23: 2300172
+    second: polySurface1
+  - first:
+      23: 2300174
+    second: polySurface2
+  - first:
+      23: 2300176
+    second: wall1
+  - first:
+      23: 2300178
+    second: wall2
+  - first:
+      23: 2300180
+    second: wall3
+  - first:
+      33: 3300000
+    second: bottle
+  - first:
+      33: 3300002
+    second: box
+  - first:
+      33: 3300004
+    second: concrete1
+  - first:
+      33: 3300006
+    second: concrete2
+  - first:
+      33: 3300008
+    second: concrete3
+  - first:
+      33: 3300010
+    second: decal01
+  - first:
+      33: 3300012
+    second: decal02
+  - first:
+      33: 3300014
+    second: decal_01
+  - first:
+      33: 3300016
+    second: decal_01 1
+  - first:
+      33: 3300018
+    second: decal_01 2
+  - first:
+      33: 3300020
+    second: decal_01 3
+  - first:
+      33: 3300022
+    second: decal_011
+  - first:
+      33: 3300024
+    second: decal_013
+  - first:
+      33: 3300026
+    second: decal_02
+  - first:
+      33: 3300028
+    second: decal_02 1
+  - first:
+      33: 3300030
+    second: decal_02 2
+  - first:
+      33: 3300032
+    second: decal_022
+  - first:
+      33: 3300034
+    second: decal_023
+  - first:
+      33: 3300036
+    second: decal_024
+  - first:
+      33: 3300038
+    second: decal_03
+  - first:
+      33: 3300040
+    second: decal_03 1
+  - first:
+      33: 3300042
+    second: decal_04
+  - first:
+      33: 3300044
+    second: decal_04 1
+  - first:
+      33: 3300046
+    second: decal_05
+  - first:
+      33: 3300048
+    second: decal_05 1
+  - first:
+      33: 3300050
+    second: decal_06
+  - first:
+      33: 3300052
+    second: decal_07
+  - first:
+      33: 3300054
+    second: decal_08
+  - first:
+      33: 3300056
+    second: end_piece
+  - first:
+      33: 3300058
+    second: grass
+  - first:
+      33: 3300060
+    second: grass 1
+  - first:
+      33: 3300062
+    second: grass 2
+  - first:
+      33: 3300064
+    second: grass1
+  - first:
+      33: 3300066
+    second: grass1 1
+  - first:
+      33: 3300068
+    second: grass1 2
+  - first:
+      33: 3300070
+    second: grass2
+  - first:
+      33: 3300072
+    second: grass2 1
+  - first:
+      33: 3300074
+    second: grass2 2
+  - first:
+      33: 3300076
+    second: grass3
+  - first:
+      33: 3300078
+    second: meter
+  - first:
+      33: 3300080
+    second: meter2
+  - first:
+      33: 3300082
+    second: meter3
+  - first:
+      33: 3300084
+    second: modular_piece
+  - first:
+      33: 3300086
+    second: moss
+  - first:
+      33: 3300088
+    second: moss 1
+  - first:
+      33: 3300090
+    second: pipes
+  - first:
+      33: 3300092
+    second: pipes 1
+  - first:
+      33: 3300094
+    second: pipes 2
+  - first:
+      33: 3300096
+    second: pipes 3
+  - first:
+      33: 3300098
+    second: pipes 4
+  - first:
+      33: 3300100
+    second: plates
+  - first:
+      33: 3300102
+    second: ploybag
+  - first:
+      33: 3300104
+    second: polybag
+  - first:
+      33: 3300106
+    second: roof
+  - first:
+      33: 3300108
+    second: roof 1
+  - first:
+      33: 3300110
+    second: roof 2
+  - first:
+      33: 3300112
+    second: roof 3
+  - first:
+      33: 3300114
+    second: roof 4
+  - first:
+      33: 3300116
+    second: tyre
+  - first:
+      33: 3300118
+    second: vlc
+  - first:
+      33: 3300120
+    second: vlc1
+  - first:
+      33: 3300122
+    second: wall
+  - first:
+      33: 3300124
+    second: wall 1
+  - first:
+      33: 3300126
+    second: wall 2
+  - first:
+      33: 3300128
+    second: wall 3
+  - first:
+      33: 3300130
+    second: wall 4
+  - first:
+      33: 3300132
+    second: water_pipe
+  - first:
+      33: 3300134
+    second: wood
+  - first:
+      33: 3300136
+    second: wood1
+  - first:
+      33: 3300138
+    second: decal_015
+  - first:
+      33: 3300140
+    second: decal_016
+  - first:
+      33: 3300142
+    second: decal_017
+  - first:
+      33: 3300144
+    second: decal_018
+  - first:
+      33: 3300146
+    second: decal_019
+  - first:
+      33: 3300148
+    second: floor
+  - first:
+      33: 3300150
+    second: grass_01
+  - first:
+      33: 3300152
+    second: grass_01 1
+  - first:
+      33: 3300154
+    second: grass_01 2
+  - first:
+      33: 3300156
+    second: grass_01 3
+  - first:
+      33: 3300158
+    second: grass_02
+  - first:
+      33: 3300160
+    second: grass_02 1
+  - first:
+      33: 3300162
+    second: grass_02 2
+  - first:
+      33: 3300164
+    second: grass_03
+  - first:
+      33: 3300166
+    second: grass_03 1
+  - first:
+      33: 3300168
+    second: hanging_moss
+  - first:
+      33: 3300170
+    second: moss_hanging
+  - first:
+      33: 3300172
+    second: polySurface1
+  - first:
+      33: 3300174
+    second: polySurface2
+  - first:
+      33: 3300176
+    second: wall1
+  - first:
+      33: 3300178
+    second: wall2
+  - first:
+      33: 3300180
+    second: wall3
+  - first:
+      43: 4300000
+    second: pipes
+  - first:
+      43: 4300002
+    second: roof
+  - first:
+      43: 4300004
+    second: wall
+  - first:
+      43: 4300006
+    second: decal_01
+  - first:
+      43: 4300008
+    second: decal_02
+  - first:
+      43: 4300010
+    second: decal_03
+  - first:
+      43: 4300012
+    second: decal_04
+  - first:
+      43: 4300014
+    second: decal_05
+  - first:
+      43: 4300016
+    second: moss
+  - first:
+      43: 4300018
+    second: grass
+  - first:
+      43: 4300020
+    second: grass1
+  - first:
+      43: 4300022
+    second: grass2
+  - first:
+      43: 4300024
+    second: wall
+  - first:
+      43: 4300026
+    second: roof
+  - first:
+      43: 4300028
+    second: pipes
+  - first:
+      43: 4300030
+    second: decal_01
+  - first:
+      43: 4300032
+    second: decal_011
+  - first:
+      43: 4300034
+    second: decal_022
+  - first:
+      43: 4300036
+    second: decal_023
+  - first:
+      43: 4300038
+    second: decal_013
+  - first:
+      43: 4300040
+    second: decal_024
+  - first:
+      43: 4300042
+    second: moss
+  - first:
+      43: 4300044
+    second: grass
+  - first:
+      43: 4300046
+    second: pipes
+  - first:
+      43: 4300048
+    second: wall
+  - first:
+      43: 4300050
+    second: roof
+  - first:
+      43: 4300052
+    second: tyre
+  - first:
+      43: 4300054
+    second: decal_01
+  - first:
+      43: 4300056
+    second: decal_02
+  - first:
+      43: 4300058
+    second: decal_03
+  - first:
+      43: 4300060
+    second: decal_04
+  - first:
+      43: 4300062
+    second: decal_05
+  - first:
+      43: 4300064
+    second: decal_06
+  - first:
+      43: 4300066
+    second: decal_07
+  - first:
+      43: 4300068
+    second: decal_08
+  - first:
+      43: 4300070
+    second: grass1
+  - first:
+      43: 4300072
+    second: grass2
+  - first:
+      43: 4300074
+    second: grass3
+  - first:
+      43: 4300076
+    second: pipes
+  - first:
+      43: 4300078
+    second: roof
+  - first:
+      43: 4300080
+    second: wall
+  - first:
+      43: 4300082
+    second: decal_01
+  - first:
+      43: 4300084
+    second: decal_02
+  - first:
+      43: 4300086
+    second: grass2
+  - first:
+      43: 4300088
+    second: grass1
+  - first:
+      43: 4300090
+    second: wall
+  - first:
+      43: 4300092
+    second: roof
+  - first:
+      43: 4300094
+    second: pipes
+  - first:
+      43: 4300096
+    second: decal01
+  - first:
+      43: 4300098
+    second: decal02
+  - first:
+      43: 4300100
+    second: grass
+  - first:
+      43: 4300102
+    second: end_piece
+  - first:
+      43: 4300104
+    second: modular_piece
+  - first:
+      43: 4300106
+    second: vlc
+  - first:
+      43: 4300108
+    second: polybag
+  - first:
+      43: 4300110
+    second: concrete1
+  - first:
+      43: 4300112
+    second: wood
+  - first:
+      43: 4300114
+    second: meter
+  - first:
+      43: 4300116
+    second: meter2
+  - first:
+      43: 4300118
+    second: wood1
+  - first:
+      43: 4300120
+    second: box
+  - first:
+      43: 4300122
+    second: bottle
+  - first:
+      43: 4300124
+    second: concrete3
+  - first:
+      43: 4300126
+    second: ploybag
+  - first:
+      43: 4300128
+    second: meter3
+  - first:
+      43: 4300130
+    second: vlc1
+  - first:
+      43: 4300132
+    second: concrete2
+  - first:
+      43: 4300134
+    second: plates
+  - first:
+      43: 4300136
+    second: water_pipe
+  - first:
+      43: 4300138
+    second: moss_hanging
+  - first:
+      43: 4300140
+    second: grass_02
+  - first:
+      43: 4300142
+    second: grass_03
+  - first:
+      43: 4300144
+    second: grass_01
+  - first:
+      43: 4300146
+    second: wall1
+  - first:
+      43: 4300148
+    second: wall2
+  - first:
+      43: 4300150
+    second: wall3
+  - first:
+      43: 4300152
+    second: hanging_moss
+  - first:
+      43: 4300154
+    second: decal_015
+  - first:
+      43: 4300156
+    second: decal_016
+  - first:
+      43: 4300158
+    second: decal_017
+  - first:
+      43: 4300160
+    second: decal_018
+  - first:
+      43: 4300162
+    second: grass_02
+  - first:
+      43: 4300164
+    second: grass_03
+  - first:
+      43: 4300166
+    second: decal_019
+  - first:
+      43: 4300168
+    second: grass_01
+  - first:
+      43: 4300170
+    second: grass_01
+  - first:
+      43: 4300172
+    second: grass_02
+  - first:
+      43: 4300174
+    second: polySurface1
+  - first:
+      43: 4300176
+    second: polySurface2
+  - first:
+      43: 4300178
+    second: grass_01
+  - first:
+      43: 4300180
+    second: floor
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

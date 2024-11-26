@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 216af0c50e80c32419cd873655a45ec4
+timeCreated: 1478964063
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Model/Materials/pipes_material.mat
+  uploadId: 152139

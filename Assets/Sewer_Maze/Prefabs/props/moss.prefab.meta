@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3225d34a43fc40e4bbe14ad5f52a5575
+timeCreated: 1479640648
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/moss.prefab
+  uploadId: 152139

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 147d78c56cb578a4bb0ec431fc05d579
+timeCreated: 1479465111
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/bottle.prefab
+  uploadId: 152139

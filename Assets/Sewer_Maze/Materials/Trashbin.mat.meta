@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ce87940b3772bcc4d94b4c19b46bdb2f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 146008
+  packageName: Industrial Trash Pack
+  packageVersion: 1.2
+  assetPath: Assets/Industrial Trash Pack/Models/Materials_HDRP/Trashbin.mat
+  uploadId: 612480

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3fe534959bc1d604f9412113b3d9645f
+timeCreated: 1479465292
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Prefabs/props/box.prefab
+  uploadId: 152139

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4032c54495d228244ad04935fe61ab3d
+timeCreated: 1478964063
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 77049
+  packageName: Sewer Maze
+  packageVersion: 1.1
+  assetPath: Assets/Sewer_Maze/Modular_Sewer/Model/Materials/decals_material.mat
+  uploadId: 152139
