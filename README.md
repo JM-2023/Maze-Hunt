@@ -6,6 +6,10 @@
 - Jimin Li  
 - Jesus Serna  
 
+
+
+**Halfway project review:**[Click Here](https://drive.google.com/file/d/1ZSAfCC6HPMZSVZJq6Y39NQoFOMhymFpC/view?usp=sharing)
+
 ---
 
 ## Description of Current Target for the Game
