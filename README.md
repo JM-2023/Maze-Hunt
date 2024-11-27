@@ -144,6 +144,8 @@
 - Fundamental collision detection
 
 ### Phase 2: Gameplay Elements[Working]
+
+- Mini Map
 - Collectible items (keys/tokens) with counter UI
 - Exit door that unlocks when all items are collected
 - Basic win condition
