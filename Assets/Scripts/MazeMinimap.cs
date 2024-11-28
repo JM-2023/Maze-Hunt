@@ -194,7 +194,7 @@ public class MazeMinimap : MonoBehaviour
         }
     }
 
-    Vector2 WorldToMinimapPosition(Vector3 worldPos)
+    public Vector2 WorldToMinimapPosition(Vector3 worldPos)
     {
         // Convert world position to minimap position
         float x = (worldPos.x + minimapOffset.x) * minimapScale.x;
@@ -203,7 +203,7 @@ public class MazeMinimap : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    Vector2 WorldToMinimapUV(Vector3 worldPos)
+    public Vector2 WorldToMinimapUV(Vector3 worldPos)
     {
         Vector2 mapPos = WorldToMinimapPosition(worldPos);
         return new Vector2(
