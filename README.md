@@ -142,15 +142,15 @@
 ## Development Phases
 
 ### Phase 1: Core Maze Mechanics[Done]
-- Procedural maze generation using simple grid-based algorithm
-- Basic player movement (WASD + mouse look)
-- Simple environment with basic materials
-- Fundamental collision detection
+- Procedural maze generation using simple grid-based algorithm[Done]
+- Basic player movement (WASD + mouse look)[Done]
+- Simple environment with basic materials[Done]
+- Fundamental collision detection[Done]
 
 ### Phase 2: Gameplay Elements[Working]
 
-- Mini Map
-- Collectible items (keys/tokens) with counter UI
+- Mini Map [Done]
+- Collectible items (keys/tokens) with counter UI [Done]
 - Exit door that unlocks when all items are collected
 - Basic win condition
 - Simple game over screen
