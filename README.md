@@ -151,9 +151,9 @@
 
 - Mini Map [Done]
 - Collectible items (keys/tokens) with counter UI [Done]
-- Exit door that unlocks when all items are collected
-- Basic win condition
-- Simple game over screen
+- Exit door that unlocks when all items are collected[Done]
+- Basic win condition[Done]
+- Simple game over screen[Working]
 
 ### Phase 3: Enemy and Atmosphere
 - Single enemy with basic NavMesh pathfinding
