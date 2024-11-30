@@ -158,8 +158,11 @@ public class KeyManager : MonoBehaviour
 
             if (collectedKeys >= totalKeysNeeded)
             {
-                Debug.Log("All keys collected! You win!");
-                // Add your win condition handling here
+                ExitDoor exitDoor = FindObjectOfType<ExitDoor>();
+                if (exitDoor != null)
+                {
+                    exitDoor.UnlockDoor();
+                }
             }
         }
     }
@@ -170,5 +173,10 @@ public class KeyManager : MonoBehaviour
         {
             keyCountText.text = $"Keys: {collectedKeys}/{totalKeysNeeded}";
         }
+    }
+
+    public int GetCollectedKeys()
+    {
+        return collectedKeys;
     }
 }
