@@ -41,11 +41,14 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Debug.Log("Restart Game!");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ExitGame()
     {
+        Debug.Log("Exit Game!");
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #else
