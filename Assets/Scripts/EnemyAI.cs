@@ -1,76 +1,191 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform player;          // Reference to the player GameObject
-    public float detectionRadius = 15f; // Radius for detecting the player
-    public float attackRadius = 2f;    // Radius for triggering the attack
-    public float runSpeed = 5f;        // Speed of the enemy when running
+    [Header("References")]
+    public Transform player;         // Assign the player's transform in the Inspector.
+    private NavMeshAgent agent;
+    private Animator anim;
+    private AudioSource audioSource; // AudioSource attached to the enemy
 
-    [SerializeField]public Animator animator;         // Reference to the Animator component
+    [Header("Movement Settings")]
+    public float walkSpeed = 2f;
+    public float runSpeed = 5f;
+    public float runDistance = 10f;
+    public float biteDistance = 2f;
+    public float stoppingDistance = 1.5f;
 
-    private NavMeshAgent agent;       // NavMeshAgent for navigation
+    [Header("Audio Clips")]
+    public AudioClip movementClip;   // Single looped sound for any movement (walk or run)
+    public AudioClip biteClip;       // One-shot bite sound
+
+    private bool isRunning = false;
+    private bool isBiting = false;
+    private bool isMovementSoundPlaying = false;
 
     void Start()
     {
-        // Get the NavMeshAgent component
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = runSpeed; // Set initial run speed
+
+        anim = GetComponentInChildren<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
+
+
+        // Initial conditions
+        agent.speed = walkSpeed;
+        anim.SetFloat("Speed", walkSpeed);
+        anim.SetBool("IsRunning", false);
+        anim.SetBool("IsBiting", false);
+
+        // Start moving sound by default since the enemy begins walking
+        StartMovementSound();
     }
 
     void Update()
     {
-        // Calculate distance to the player
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (player == null) return;
 
-        if (distanceToPlayer <= attackRadius)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        agent.SetDestination(player.position);
+
+        // Check if we should be biting the player
+        if (distanceToPlayer <= biteDistance)
         {
-            AttackPlayer(); // Attack if in range
-        }
-        else if (distanceToPlayer <= detectionRadius)
-        {
-            ChasePlayer(); // Chase if in detection range
+            StartBiting();
         }
         else
         {
-            Idle(); // Stand still if out of range
+            StopBiting();
+
+            // Decide whether to run or walk
+            if (distanceToPlayer <= runDistance)
+            {
+                StartRunning();
+            }
+            else
+            {
+                StartWalking();
+            }
         }
 
-        UpdateAnimation(); // Update animations based on movement
+        // Handle stopping distance logic
+        if (distanceToPlayer <= stoppingDistance && !isBiting)
+        {
+            agent.isStopped = true;
+            StopMovementSound();
+        }
+        else if (!isBiting)
+        {
+            agent.isStopped = false;
+            // If not stopped, ensure movement sound is playing
+            if (!isMovementSoundPlaying)
+                StartMovementSound();
+        }
     }
 
-    void ChasePlayer()
+    private void StartBiting()
     {
-        // Set the destination to the player's position
-        agent.SetDestination(player.position);
+        if (!isBiting)
+        {
+            isBiting = true;
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero; // Stop movement immediately
+
+            anim.SetBool("IsBiting", true);
+            anim.SetBool("IsRunning", false);
+            anim.SetFloat("Speed", 0f);
+
+            // Stop movement sound when attacking
+            StopMovementSound();
+
+            // Play bite sound once
+            PlayBiteSound();
+        }
     }
 
-    void AttackPlayer()
+    private void StopBiting()
     {
-        // Stop moving and trigger the attack animation
-        animator.SetTrigger("Attack");
+        if (isBiting)
+        {
+            isBiting = false;
+            agent.isStopped = false;
+            anim.SetBool("IsBiting", false);
+
+            // After biting, if we should be moving, start the movement sound again
+            if (isRunning || (!isRunning && !agent.isStopped))
+            {
+                StartMovementSound();
+            }
+        }
     }
 
-    void Idle()
+    private void StartRunning()
     {
-        // Stop the NavMeshAgent and ensure no animations are playing
-        agent.ResetPath();
+        if (!isRunning)
+        {
+            isRunning = true;
+            agent.speed = runSpeed;
+            anim.SetBool("IsRunning", true);
+            anim.SetFloat("Speed", runSpeed);
+
+            // Ensure movement sound is playing
+            if (!isMovementSoundPlaying && !isBiting)
+                StartMovementSound();
+        }
     }
 
-    void UpdateAnimation()
+    private void StartWalking()
     {
-        // Determine if the enemy is moving
-        bool isMoving = agent.velocity.magnitude > 0.1f;
+        if (isRunning)
+        {
+            isRunning = false;
+            agent.speed = walkSpeed;
+            anim.SetBool("IsRunning", false);
+            anim.SetFloat("Speed", walkSpeed);
 
-        // Set animation parameters based on movement state
-        animator.SetBool("IsRunning", isMoving && Vector3.Distance(transform.position, player.position) > attackRadius);
+            // Ensure movement sound is playing
+            if (!isMovementSoundPlaying && !isBiting && !agent.isStopped)
+                StartMovementSound();
+        }
+        else
+        {
+            // If we are already walking and not biting or stopped, ensure movement sound is playing
+            if (!isMovementSoundPlaying && !isBiting && !agent.isStopped)
+                StartMovementSound();
+        }
     }
 
-    public void SetRunSpeed(float newSpeed)
+    // Audio methods
+    private void StartMovementSound()
     {
-        // Allow dynamic change of the enemy's run speed
-        runSpeed = newSpeed;
-        agent.speed = newSpeed;
+        if (audioSource == null || movementClip == null) return;
+        if (isMovementSoundPlaying) return;
+
+        // Stop whatever was playing and start movement sound
+        audioSource.Stop();
+        audioSource.clip = movementClip;
+        audioSource.loop = true;
+        audioSource.Play();
+        isMovementSoundPlaying = true;
+    }
+
+    private void StopMovementSound()
+    {
+        if (audioSource == null) return;
+        if (!isMovementSoundPlaying) return;
+
+        audioSource.Stop();
+        isMovementSoundPlaying = false;
+    }
+
+    private void PlayBiteSound()
+    {
+        if (audioSource == null || biteClip == null) return;
+
+        // PlayOneShot doesn't interrupt the current looped sound since we stopped it already
+        audioSource.PlayOneShot(biteClip);
     }
 }
