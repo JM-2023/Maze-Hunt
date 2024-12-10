@@ -388,5 +388,10 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        public float GetCurrentSpeed()
+        {
+            return _speed;
+        }
     }
 }
