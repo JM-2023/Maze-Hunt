@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using StarterAssets; // Ensure you have this if StarterAssetsInputs is in this namespace
 
 public class GameManager : MonoBehaviour
 {
@@ -29,9 +30,16 @@ public class GameManager : MonoBehaviour
         if (!gameWon)
         {
             gameWon = true;
-            // Lock cursor and show
+            // Unlock and show the cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            // Prevent StarterAssetsInputs from re-locking the cursor
+            StarterAssetsInputs inputs = FindObjectOfType<StarterAssetsInputs>();
+            if (inputs != null)
+            {
+                inputs.cursorLocked = false;
+            }
 
             // Show win screen after delay
             Invoke("DisplayWinScreen", delayBeforeWinScreen);
@@ -51,9 +59,16 @@ public class GameManager : MonoBehaviour
         if (!gameOver)
         {
             gameOver = true;
-            // Lock cursor and show
+            // Unlock and show the cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            // Prevent StarterAssetsInputs from re-locking the cursor
+            StarterAssetsInputs inputs = FindObjectOfType<StarterAssetsInputs>();
+            if (inputs != null)
+            {
+                inputs.cursorLocked = false;
+            }
 
             if (gameOverScreenPanel != null)
             {
@@ -65,7 +80,6 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Debug.Log("Restart Game!");
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
