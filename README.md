@@ -161,7 +161,7 @@
 - Heartbeat sound system (varying with enemy proximity)[Done]
 - Basic enemy patrol behavior[Done]
 
-### Stretch Goals
+### Stretch Goals[Done]
 - Additional enemies[Done]
 - Hiding spots (simple trigger areas)[Drop]
 - Power-ups (speed boost, enemy freeze)[Done]
