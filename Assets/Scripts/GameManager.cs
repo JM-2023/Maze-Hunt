@@ -5,15 +5,22 @@ public class GameManager : MonoBehaviour
 {
     [Header("UI References")]
     public GameObject winScreenPanel;
+    public GameObject gameOverScreenPanel; // <-- Add this reference to your GameOverScreen panel
     public float delayBeforeWinScreen = 1f; // Delay after opening the door
 
     private bool gameWon = false;
+    private bool gameOver = false; // Track if the game is over
 
     void Start()
     {
         if (winScreenPanel != null)
         {
             winScreenPanel.SetActive(false);
+        }
+        
+        if (gameOverScreenPanel != null)
+        {
+            gameOverScreenPanel.SetActive(false);
         }
     }
 
@@ -22,10 +29,10 @@ public class GameManager : MonoBehaviour
         if (!gameWon)
         {
             gameWon = true;
-            // Lock cursor and hide it
+            // Lock cursor and show
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            
+
             // Show win screen after delay
             Invoke("DisplayWinScreen", delayBeforeWinScreen);
         }
@@ -39,6 +46,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ShowGameOverScreen()
+    {
+        if (!gameOver)
+        {
+            gameOver = true;
+            // Lock cursor and show
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            if (gameOverScreenPanel != null)
+            {
+                gameOverScreenPanel.SetActive(true);
+            }
+        }
+    }
+
     public void RestartGame()
     {
         Debug.Log("Restart Game!");
@@ -49,10 +72,10 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Debug.Log("Exit Game!");
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

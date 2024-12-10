@@ -1,15 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
     [Header("References")]
-    public Transform player;         // Assign the player's transform in the Inspector.
+    public Transform player; // Assign the player's transform in the Inspector if possible.
     private NavMeshAgent agent;
     private Animator anim;
-
-    AudioSource bitingSounds;
+    private AudioSource bitingSounds;
 
     [Header("Movement Settings")]
     public float walkSpeed = 1.2f;
@@ -27,18 +25,46 @@ public class EnemyAI : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         bitingSounds = GetComponent<AudioSource>();
 
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                player = playerObj.transform;
+            }
+            else
+            {
+                Debug.LogWarning("EnemyAI: Player not assigned and no GameObject with tag 'Player' found.");
+            }
+        }
+
+        if (agent == null)
+        {
+            Debug.LogError("EnemyAI: No NavMeshAgent found on this enemy.");
+        }
+
         // Initial conditions
-        agent.speed = walkSpeed;
-        anim.SetFloat("Speed", walkSpeed);
-        anim.SetBool("IsRunning", false);
-        anim.SetBool("IsBiting", false);
+        if (anim != null)
+        {
+            agent.speed = walkSpeed;
+            anim.SetFloat("Speed", walkSpeed);
+            anim.SetBool("IsRunning", false);
+            anim.SetBool("IsBiting", false);
+        }
+        else
+        {
+            Debug.LogWarning("EnemyAI: No animator found on the enemy or its children.");
+        }
     }
 
     void Update()
     {
-        if (player == null) return;
+        // If we have no player reference yet, no movement
+        if (player == null || agent == null) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        // Set the destination every frame
         agent.SetDestination(player.position);
 
         // Check if we should be biting the player
@@ -77,31 +103,60 @@ public class EnemyAI : MonoBehaviour
         if (!isBiting)
         {
             isBiting = true;
-            // When we start biting, the enemy is no longer running.
             isRunning = false;
 
-            agent.isStopped = true;
-            agent.velocity = Vector3.zero; // Stop movement immediately
+            if (agent != null)
+            {
+                agent.isStopped = true;
+                agent.velocity = Vector3.zero; // Stop movement immediately
+            }
 
-            anim.SetBool("IsBiting", true);
-            anim.SetBool("IsRunning", false);
-            anim.SetFloat("Speed", 0f);
+            if (anim != null)
+            {
+                anim.SetBool("IsBiting", true);
+                anim.SetBool("IsRunning", false);
+                anim.SetFloat("Speed", 0f);
+            }
 
-            bitingSounds.Play();
+            if (bitingSounds != null)
+            {
+                bitingSounds.Play();
+            }
+
+            // Deal damage to the player
+            if (player != null)
+            {
+                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(1); // Player loses 1 health per bite
+                }
+            }
         }
     }
+
 
     private void StopBiting()
     {
         if (isBiting)
         {
             isBiting = false;
-            // Reset isRunning here to allow the run animation to occur again if conditions are met.
             isRunning = false;
 
-            agent.isStopped = false;
-            anim.SetBool("IsBiting", false);
-            bitingSounds.Stop();
+            if (agent != null)
+            {
+                agent.isStopped = false;
+            }
+
+            if (anim != null)
+            {
+                anim.SetBool("IsBiting", false);
+            }
+
+            if (bitingSounds != null && bitingSounds.isPlaying)
+            {
+                bitingSounds.Stop();
+            }
         }
     }
 
@@ -110,9 +165,12 @@ public class EnemyAI : MonoBehaviour
         if (!isRunning)
         {
             isRunning = true;
-            agent.speed = runSpeed;
-            anim.SetBool("IsRunning", true);
-            anim.SetFloat("Speed", runSpeed);
+            if (agent != null) agent.speed = runSpeed;
+            if (anim != null)
+            {
+                anim.SetBool("IsRunning", true);
+                anim.SetFloat("Speed", runSpeed);
+            }
         }
     }
 
@@ -121,9 +179,12 @@ public class EnemyAI : MonoBehaviour
         if (isRunning)
         {
             isRunning = false;
-            agent.speed = walkSpeed;
-            anim.SetBool("IsRunning", false);
-            anim.SetFloat("Speed", walkSpeed);
+            if (agent != null) agent.speed = walkSpeed;
+            if (anim != null)
+            {
+                anim.SetBool("IsRunning", false);
+                anim.SetFloat("Speed", walkSpeed);
+            }
         }
     }
 }

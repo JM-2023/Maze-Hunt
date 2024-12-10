@@ -1,28 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Walk1_Audio : MonoBehaviour
 {
+    private AudioSource aud;
 
-
-
-    AudioSource aud;
-    // Start is called before the first frame update
     void Start()
     {
         aud = GetComponent<AudioSource>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (aud == null)
+        {
+            Debug.LogWarning("Walk1_Audio: No AudioSource found on this GameObject. Ensure an AudioSource is present.");
+        }
     }
-
 
     public void PlaySound()
     {
-        aud.Play();
+        if (aud != null && aud.clip != null)
+        {
+            aud.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Walk1_Audio: Unable to play sound. AudioSource or AudioClip missing.");
+        }
     }
 }
