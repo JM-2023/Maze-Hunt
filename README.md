@@ -147,26 +147,26 @@
 - Simple environment with basic materials[Done]
 - Fundamental collision detection[Done]
 
-### Phase 2: Gameplay Elements[Working]
+### Phase 2: Gameplay Elements[Done]
 
 - Mini Map [Done]
 - Collectible items (keys/tokens) with counter UI [Done]
 - Exit door that unlocks when all items are collected[Done]
 - Basic win condition[Done]
-- Simple game over screen[Working]
+- Simple game over screen[Done]
 
-### Phase 3: Enemy and Atmosphere
-- Single enemy with basic NavMesh pathfinding
-- Enemy detection range and chase behavior
-- Heartbeat sound system (varying with enemy proximity)
-- Basic enemy patrol behavior
+### Phase 3: Enemy and Atmosphere[Done]
+- Single enemy with basic NavMesh pathfinding[Done]
+- Enemy detection range and chase behavior[Done]
+- Heartbeat sound system (varying with enemy proximity)[Done]
+- Basic enemy patrol behavior[Done]
 
 ### Stretch Goals
-- Additional enemies
-- Hiding spots (simple trigger areas)
-- Power-ups (speed boost, enemy freeze)
-- Timer feature
-- Multiple levels
+- Additional enemies[Done]
+- Hiding spots (simple trigger areas)[Drop]
+- Power-ups (speed boost, enemy freeze)[Done]
+- Timer feature[Drop]
+- Multiple levels[Drop]
 
 ## Technical Implementation Notes
 
