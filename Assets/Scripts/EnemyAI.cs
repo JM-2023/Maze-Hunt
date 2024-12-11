@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
     [Header("References")]
-    public Transform player; // Assign the player's transform in the Inspector if possible.
+    public Transform player; 
     private NavMeshAgent agent;
     private Animator anim;
     private AudioSource bitingSounds;
@@ -12,9 +13,16 @@ public class EnemyAI : MonoBehaviour
     [Header("Movement Settings")]
     public float walkSpeed = 1.2f;
     public float runSpeed = 3.4f;
-    public float runDistance = 10f;
+    public float runDistance = 10f;      
     public float biteDistance = 1.5f;
     public float stoppingDistance = 1.5f;
+
+    [Header("Behavior Settings")]
+    public float runDuration = 5f;       
+    public float runCooldown = 10f;      
+
+    private float runTimer = 0f;         
+    private float runCooldownTimer = 0f; 
 
     private bool isRunning = false;
     private bool isBiting = false;
@@ -43,7 +51,6 @@ public class EnemyAI : MonoBehaviour
             Debug.LogError("EnemyAI: No NavMeshAgent found on this enemy.");
         }
 
-        // Initial conditions
         if (anim != null)
         {
             agent.speed = walkSpeed;
@@ -59,15 +66,31 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        // If we have no player reference yet, no movement
         if (player == null || agent == null) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
+        // Update timers
+        if (runTimer > 0f)
+        {
+            runTimer -= Time.deltaTime;
+            if (runTimer <= 0f)
+            {
+                // Run ended, start cooldown
+                runCooldownTimer = runCooldown;
+                runTimer = 0f;
+                StartWalking();
+            }
+        }
+
+        if (runCooldownTimer > 0f)
+        {
+            runCooldownTimer -= Time.deltaTime;
+        }
+
         // Set the destination every frame
         agent.SetDestination(player.position);
 
-        // Check if we should be biting the player
         if (distanceToPlayer <= biteDistance)
         {
             StartBiting();
@@ -75,19 +98,20 @@ public class EnemyAI : MonoBehaviour
         else
         {
             StopBiting();
-
-            // Decide whether to run or walk
-            if (distanceToPlayer <= runDistance)
+            
+            // If not currently running, consider running if conditions are met
+            if (!isRunning && runCooldownTimer <= 0f && distanceToPlayer <= runDistance)
             {
                 StartRunning();
+                runTimer = runDuration;
             }
-            else
+            else if (!isRunning)
             {
                 StartWalking();
             }
         }
 
-        // Handle stopping distance logic
+        // Handle stopping distance logic if not biting
         if (distanceToPlayer <= stoppingDistance && !isBiting)
         {
             agent.isStopped = true;
@@ -123,26 +147,32 @@ public class EnemyAI : MonoBehaviour
                 bitingSounds.Play();
             }
 
-            // Deal damage to the player
-            if (player != null)
-            {
-                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-                if (playerHealth != null)
-                {
-                    playerHealth.TakeDamage(1); // Player loses 1 health per bite
-                }
-            }
+            // Start the delayed damage coroutine
+            StartCoroutine(DelayedDamage(0.3f));
         }
     }
 
+    private IEnumerator DelayedDamage(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        
+        // Deal damage to the player after the delay
+        if (player != null)
+        {
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                // This will cause the player to take damage and play the hurt sound
+                playerHealth.TakeDamage(1);
+            }
+        }
+    }
 
     private void StopBiting()
     {
         if (isBiting)
         {
             isBiting = false;
-            isRunning = false;
-
             if (agent != null)
             {
                 agent.isStopped = false;

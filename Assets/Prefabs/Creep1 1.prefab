@@ -194,8 +194,10 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 5
   runDistance: 10
-  biteDistance: 2.25
+  biteDistance: 3
   stoppingDistance: 1
+  runDuration: 2
+  runCooldown: 40
 --- !u!1001 &9217550539924137576
 PrefabInstance:
   m_ObjectHideFlags: 0

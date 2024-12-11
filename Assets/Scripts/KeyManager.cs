@@ -15,7 +15,7 @@ public class KeyManager : MonoBehaviour
     public MazeMinimap mazeMinimap;
 
     [Header("UI")]
-    public TextMeshProUGUI keyCountText;
+    public TextMeshProUGUI keyCountText; // This will now just show the count
     public Color keyMarkerColor = Color.yellow;
 
     [Header("Audio")]
@@ -69,7 +69,7 @@ public class KeyManager : MonoBehaviour
     {
         if (spawnedKeys == null || keyMarkers == null) return;
 
-        // Update key marker positions
+        // Update key marker positions on minimap
         for (int i = spawnedKeys.Count - 1; i >= 0; i--)
         {
             if (i < spawnedKeys.Count && i < keyMarkers.Count)
@@ -117,14 +117,12 @@ public class KeyManager : MonoBehaviour
         int keysPlaced = 0;
         int attempts = 0;
         // Try to place the required number of keys
-        // If a chosen floor is not suitable (because it's blocked), try next floor.
-        // Limit attempts to avoid infinite loops.
         while (keysPlaced < totalKeysNeeded && attempts < availableFloors.Count)
         {
             GameObject chosenFloor = availableFloors[attempts];
             Vector3 spawnPosition = chosenFloor.transform.position + Vector3.up * 0.5f;
 
-            // Check if spawn position is inside a wall
+            // Check if spawn position is not blocked by wall
             if (!IsPositionBlockedByWall(spawnPosition))
             {
                 // Spawn the key
@@ -158,7 +156,6 @@ public class KeyManager : MonoBehaviour
     bool IsPositionBlockedByWall(Vector3 position)
     {
         // Check for walls near this position
-        // Adjust radius as needed based on your wall sizes
         float checkRadius = 0.4f;
         Collider[] hits = Physics.OverlapSphere(position, checkRadius);
         foreach (Collider hit in hits)
@@ -206,6 +203,7 @@ public class KeyManager : MonoBehaviour
 
             UpdateKeyCountUI();
 
+            // If the player has all keys needed, unlock the door
             if (collectedKeys >= totalKeysNeeded)
             {
                 ExitDoor exitDoor = FindObjectOfType<ExitDoor>();
@@ -219,9 +217,10 @@ public class KeyManager : MonoBehaviour
 
     void UpdateKeyCountUI()
     {
+        // I"Keys: X/Y"
         if (keyCountText != null)
         {
-            keyCountText.text = $"Keys: {collectedKeys}/{totalKeysNeeded}";
+            keyCountText.text = $"{collectedKeys}/{totalKeysNeeded}";
         }
     }
 

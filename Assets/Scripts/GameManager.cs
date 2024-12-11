@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
         {
             winScreenPanel.SetActive(true);
         }
+
+        // Pause the game after showing the win screen
+        Time.timeScale = 0f;
     }
 
     public void ShowGameOverScreen()
@@ -65,6 +68,9 @@ public class GameManager : MonoBehaviour
 
             // Prevent StarterAssetsInputs from re-locking the cursor
             StarterAssetsInputs inputs = FindObjectOfType<StarterAssetsInputs>();
+
+            Time.timeScale = 0f;
+
             if (inputs != null)
             {
                 inputs.cursorLocked = false;
@@ -80,7 +86,12 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Debug.Log("Restart Game!");
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        // After loading the scene, re-lock the cursor:
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void ExitGame()
