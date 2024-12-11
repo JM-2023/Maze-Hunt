@@ -194,7 +194,7 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 5
   runDistance: 10
-  biteDistance: 3
+  biteDistance: 4
   stoppingDistance: 1
   runDuration: 2
   runCooldown: 40

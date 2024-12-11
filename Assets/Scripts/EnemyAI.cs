@@ -26,6 +26,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool isRunning = false;
     private bool isBiting = false;
+    private bool isPerformingBite = false; // To prevent multiple bites overlapping
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("EnemyAI: Player not assigned and no GameObject with tag 'Player' found.");
+                Debug.LogWarning("EnemyAI: Player not assigned and no Player tag found.");
             }
         }
 
@@ -58,25 +59,23 @@ public class EnemyAI : MonoBehaviour
             anim.SetBool("IsRunning", false);
             anim.SetBool("IsBiting", false);
         }
-        else
-        {
-            Debug.LogWarning("EnemyAI: No animator found on the enemy or its children.");
-        }
     }
 
     void Update()
     {
         if (player == null || agent == null) return;
 
+        // If we are performing a bite, do not update movement or run logic.
+        if (isPerformingBite) return;
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        // Update timers
+        // Update timers for run and cooldown
         if (runTimer > 0f)
         {
             runTimer -= Time.deltaTime;
             if (runTimer <= 0f)
             {
-                // Run ended, start cooldown
                 runCooldownTimer = runCooldown;
                 runTimer = 0f;
                 StartWalking();
@@ -88,18 +87,21 @@ public class EnemyAI : MonoBehaviour
             runCooldownTimer -= Time.deltaTime;
         }
 
-        // Set the destination every frame
         agent.SetDestination(player.position);
 
         if (distanceToPlayer <= biteDistance)
         {
-            StartBiting();
+            // Start the bite if not already biting
+            if (!isBiting && !isPerformingBite)
+            {
+                StartCoroutine(PerformBite());
+            }
         }
         else
         {
+            // If not biting, handle run/walk logic
             StopBiting();
             
-            // If not currently running, consider running if conditions are met
             if (!isRunning && runCooldownTimer <= 0f && distanceToPlayer <= runDistance)
             {
                 StartRunning();
@@ -111,88 +113,78 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        // Handle stopping distance logic if not biting
-        if (distanceToPlayer <= stoppingDistance && !isBiting)
+        // Handle stopping distance
+        if (distanceToPlayer <= stoppingDistance && !isBiting && !isPerformingBite)
         {
             agent.isStopped = true;
         }
-        else if (!isBiting)
+        else if (!isBiting && !isPerformingBite)
         {
             agent.isStopped = false;
         }
     }
 
-    private void StartBiting()
+    private IEnumerator PerformBite()
     {
-        if (!isBiting)
+        isPerformingBite = true;
+        isBiting = true;
+
+        // Stop movement completely while biting
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+
+        // Play bite animation and sound
+        if (anim != null)
         {
-            isBiting = true;
-            isRunning = false;
-
-            if (agent != null)
-            {
-                agent.isStopped = true;
-                agent.velocity = Vector3.zero; // Stop movement immediately
-            }
-
-            if (anim != null)
-            {
-                anim.SetBool("IsBiting", true);
-                anim.SetBool("IsRunning", false);
-                anim.SetFloat("Speed", 0f);
-            }
-
-            if (bitingSounds != null)
-            {
-                bitingSounds.Play();
-            }
-
-            // Start the delayed damage coroutine
-            StartCoroutine(DelayedDamage(0.3f));
+            anim.SetBool("IsBiting", true);
+            anim.SetFloat("Speed", 0f);
         }
-    }
 
-    private IEnumerator DelayedDamage(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        
-        // Deal damage to the player after the delay
-        if (player != null)
+        if (bitingSounds != null)
+        {
+            bitingSounds.Play();
+        }
+
+        // Wait the delay before damage application
+        float delayBeforeDamage = 0f;
+        yield return new WaitForSeconds(delayBeforeDamage);
+
+        // Check if player is still in range for damage
+        if (player != null && Vector3.Distance(transform.position, player.position) <= biteDistance)
         {
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                // This will cause the player to take damage and play the hurt sound
                 playerHealth.TakeDamage(1);
             }
         }
+
+        // Optionally, wait until bite animation finishes before ending the bite.
+        // If you know the bite animation length, you can yield for that duration or wait for an animation event.
+        float biteAnimationLength = 1.0f; // Adjust this according to your animation length
+        yield return new WaitForSeconds(biteAnimationLength - delayBeforeDamage);
+
+        // Bite action finished
+        if (anim != null)
+        {
+            anim.SetBool("IsBiting", false);
+        }
+
+        // Allow movement again
+        isBiting = false;
+        isPerformingBite = false;
+        agent.isStopped = false;
     }
 
     private void StopBiting()
     {
-        if (isBiting)
-        {
-            isBiting = false;
-            if (agent != null)
-            {
-                agent.isStopped = false;
-            }
-
-            if (anim != null)
-            {
-                anim.SetBool("IsBiting", false);
-            }
-
-            if (bitingSounds != null && bitingSounds.isPlaying)
-            {
-                bitingSounds.Stop();
-            }
-        }
+        // This is only for external interruptions or logic cleanup if needed
+        // In this approach, we don't interrupt a bite once started, so we might leave this empty.
     }
 
     private void StartRunning()
     {
-        if (!isRunning)
+        if (!isRunning && !isPerformingBite)
         {
             isRunning = true;
             if (agent != null) agent.speed = runSpeed;
