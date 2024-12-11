@@ -146,7 +146,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         // Wait the delay before damage application
-        float delayBeforeDamage = 0f;
+        float delayBeforeDamage = 0.0f;
         yield return new WaitForSeconds(delayBeforeDamage);
 
         // Check if player is still in range for damage
@@ -155,13 +155,14 @@ public class EnemyAI : MonoBehaviour
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
+                yield return new WaitForSeconds(0.24f);
                 playerHealth.TakeDamage(1);
             }
         }
 
         // Optionally, wait until bite animation finishes before ending the bite.
         // If you know the bite animation length, you can yield for that duration or wait for an animation event.
-        float biteAnimationLength = 1.0f; // Adjust this according to your animation length
+        float biteAnimationLength = 2.4f; // Adjust this according to your animation length
         yield return new WaitForSeconds(biteAnimationLength - delayBeforeDamage);
 
         // Bite action finished
