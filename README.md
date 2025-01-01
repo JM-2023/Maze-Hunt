@@ -1,51 +1,11 @@
 # Maze Hunt
 
-### Group Members
-- Mohamed Sulevani  
-- Nikoli Oudo  
-- Jimin Li  
-- Jesus Serna  
-
-
-
 **Halfway project review:**[Click Here](https://drive.google.com/file/d/1ZSAfCC6HPMZSVZJq6Y39NQoFOMhymFpC/view?usp=sharing)
 
 ---
 
 ## Description of Current Target for the Game
 **Maze Hunt** is a 3D maze game where players navigate through an atmospheric environment to collect scattered props and evade enemies. The primary objective is to collect all required props to unlock the exit door and escape the maze, all while avoiding enemies with dynamic AI behavior. Players must rely on strategic movement, environmental awareness, and potential power-ups to achieve victory or face the game over screen upon capture.
-
----
-
-## General Goals for Each Team Member
-### Mohamed Sulevani
-- **Enemy System**: 
-  - Develop the enemy AI using Unity's NavMesh for pathfinding.
-  - Implement enemy patrol, chase, and detection behaviors.
-  - Configure increasing difficulty over time by introducing more enemies or faster movement speeds.
-- **Audio Design**:
-  - Create and integrate the dynamic heartbeat system.
-  - Add sound effects for enemy growls and player footsteps.
-
-### Nikoli Oudo
-- **Maze Generation**:
-  - Implement procedural maze creation using a grid-based algorithm (e.g., Recursive Backtracking).
-  - Design modular wall and floor prefabs for maze construction.
-  - Ensure maze dimensions and properties are customizable in the Unity Inspector.
-
-### Jimin Li
-- **Player Mechanics**:
-  - Implement player controls (WASD for movement, mouse look for camera control, and jumping).
-  - Develop the prop collection system, including collectible items and a counter UI.
-  - Ensure smooth collision detection with maze walls and props.
-
-### Jesus Serna
-- **Game State and UI**:
-  - Design and implement the win condition (unlocking the exit door upon collecting all props).
-  - Develop the "Game Over" and "Victory" screens.
-  - Add UI elements for prop collection count, player health, and game status.
-- **Stretch Goals**:
-  - Collaborate on optional features like hiding spots, power-ups, and level-based difficulty scaling.
 
 ---
 
